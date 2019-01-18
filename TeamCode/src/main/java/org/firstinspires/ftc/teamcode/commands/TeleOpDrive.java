@@ -21,6 +21,7 @@ public class TeleOpDrive extends OpMode {
         robot.arm.setInTakeMotor(gamepad2.left_trigger);
         robot.arm.setOutTakeMotor(gamepad2.right_trigger);
         robot.arm.setCarriage(gamepad2.left_stick_x);
+        robot.arm.setClimber(gamepad2.right_stick_y);
     }
 
     @Override
