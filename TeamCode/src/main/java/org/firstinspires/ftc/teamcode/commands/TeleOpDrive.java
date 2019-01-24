@@ -21,7 +21,15 @@ public class TeleOpDrive extends OpMode {
        // robot.arm.setInTakeMotor(gamepad2.left_trigger);
      //   robot.arm.setOutTakeMotor(gamepad2.right_trigger);
        // robot.arm.setCarriage(gamepad2.left_stick_x);
-       // robot.arm.setClimber(gamepad2.right_stick_y);
+
+
+
+        if (gamepad2.dpad_up) {
+            robot.arm.setClimberUp();
+        } else if (gamepad2.dpad_down){
+            robot.arm.setClimberDown();
+        }
+
         robot.drive.log(telemetry);
         telemetry.addData("y axis", gamepad1.left_stick_y);
     }
