@@ -23,10 +23,16 @@ public class TeleOpDrive extends OpMode {
         robot.arm.setCarriage(gamepad2.left_stick_x);
 
 
+
         if (gamepad2.dpad_up) {
             robot.arm.setClimberUp();
-        } else if (gamepad2.dpad_down) {
+        }
+
+        else if (gamepad2.dpad_down) {
             robot.arm.setClimberDown();
+        }
+        else if (gamepad2.dpad_right){
+            robot.arm.setStopClimber();
         }
 
         robot.drive.log(telemetry);
