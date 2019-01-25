@@ -2,6 +2,7 @@ package org.firstinspires.ftc.teamcode.systems;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 
@@ -26,6 +27,7 @@ public class Arm extends Mechanism {
         inTake = hwMap.dcMotor.get("inTake");
         carriage = hwMap.servo.get("carriage");
         carriage2 = hwMap.servo.get("carriage2");
+        inTake.setDirection(DcMotorSimple.Direction.REVERSE);
         carriage2.setDirection(Servo.Direction.REVERSE);
         armMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         outTake.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
