@@ -7,14 +7,15 @@ import com.qualcomm.robotcore.hardware.Servo;
 
 public class Arm extends Mechanism {
     private DcMotor armMotor, outTake, inTake, climberMotor;
-    private Servo carriage, carriage2,marker;//carriage is left and carriage2 right
+    private Servo carriage, carriage2, marker;//carriage is left and carriage2 right
     private final double speed = 0.5;
 
     public Arm(LinearOpMode opMode) {
         this.opMode = opMode;
     }
 
-    public Arm(){}
+    public Arm() {
+    }
 
     @Override
     public void init(HardwareMap hwMap) {
@@ -32,15 +33,16 @@ public class Arm extends Mechanism {
         climberMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
     }
 
-    public void setArmMotor(double power){
+    public void setArmMotor(double power) {
         armMotor.setPower(power);
     }
 
 
-    public void setInTakeMotor(double power){
+    public void setInTakeMotor(double power) {
         inTake.setPower(power);
     }
-    public void setCarriage(double position){
+
+    public void setCarriage(double position) {
         carriage2.setPosition(position);
         carriage.setPosition(position);
 
@@ -51,18 +53,19 @@ public class Arm extends Mechanism {
 
     }
 
-    public void setClimber(double power){
+    public void setClimber(double power) {
         climberMotor.setPower(power);
     }
 
-    public void setClimberUp(){
+    public void setClimberUp() {
         climberMotor.setPower(speed);
     }
 
     public void setClimberDown() {
         climberMotor.setPower(-speed);
     }
-    public void setMarkerDown(double position){
+
+    public void setMarkerDown(double position) {
         marker.setPosition(position);
 
     }

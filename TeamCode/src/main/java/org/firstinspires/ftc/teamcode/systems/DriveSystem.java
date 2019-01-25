@@ -10,7 +10,8 @@ import org.firstinspires.ftc.robotcore.external.Telemetry;
 public class DriveSystem extends Mechanism {
     private DcMotor fLeft, bLeft, fRight, bRight;
 
-    public DriveSystem() {}
+    public DriveSystem() {
+    }
 
     public DriveSystem(LinearOpMode opMode) {
         this.opMode = opMode;
