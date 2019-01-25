@@ -29,7 +29,7 @@ public class Robot extends Mechanism {
     public void init(HardwareMap hwMap) {
         drive.init(hwMap);
         arm.init(hwMap);
-        if (opMode == null) {
+        if (opMode != null) {
             vision.init(hwMap);
         }
     }
