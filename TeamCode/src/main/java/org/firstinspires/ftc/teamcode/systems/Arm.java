@@ -27,6 +27,7 @@ public class Arm extends Mechanism {
         inTake = hwMap.dcMotor.get("inTake");
         carriage = hwMap.servo.get("carriage");
         carriage2 = hwMap.servo.get("carriage2");
+        climberMotor.setDirection(DcMotorSimple.Direction.REVERSE);
         inTake.setDirection(DcMotorSimple.Direction.REVERSE);
         carriage2.setDirection(Servo.Direction.REVERSE);
         armMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
@@ -69,6 +70,10 @@ public class Arm extends Mechanism {
 
     public void setMarkerDown(double position) {
         marker.setPosition(position);
+
+    }
+    public void setStopClimber(){
+        climberMotor.setPower(0);
 
     }
 }
