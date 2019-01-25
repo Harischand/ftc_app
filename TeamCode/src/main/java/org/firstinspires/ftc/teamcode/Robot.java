@@ -22,13 +22,15 @@ public class Robot extends Mechanism {
 
     public Robot() {
         drive = new DriveSystem();
-        arm = new Arm(opMode);
+        arm = new Arm();
     }
 
     @Override
     public void init(HardwareMap hwMap) {
         drive.init(hwMap);
         arm.init(hwMap);
-        vision.init(hwMap);
+        if (opMode == null) {
+            vision.init(hwMap);
+        }
     }
 }
