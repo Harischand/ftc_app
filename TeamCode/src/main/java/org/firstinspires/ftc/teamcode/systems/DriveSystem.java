@@ -24,6 +24,8 @@ public class DriveSystem extends Mechanism {
         bRight = hwMap.dcMotor.get("Bright");
         fRight = hwMap.dcMotor.get("Fright");
 
+        fRight.setDirection(DcMotorSimple.Direction.REVERSE);
+
         bRight.setDirection(DcMotorSimple.Direction.REVERSE);
 
         fRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
