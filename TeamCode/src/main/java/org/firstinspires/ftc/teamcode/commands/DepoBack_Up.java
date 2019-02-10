@@ -3,7 +3,7 @@ package org.firstinspires.ftc.teamcode.commands;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 
 import org.firstinspires.ftc.teamcode.Robot;
-@Autonomous(name="DepoBackUp")
+@Autonomous(name="DepoBack_Up")
 
 public class DepoBack_Up extends AutoOpMode {
     private Robot robot = new Robot(this);
@@ -19,39 +19,43 @@ public class DepoBack_Up extends AutoOpMode {
     void run() {
         if (opModeIsActive()) {
 
-            //robot.arm.setClimberUp();
-            //sleep(6700);
+            robot.arm.setClimberUp();
+            sleep(5400);
 
-            // robot.drive.drive(0,0,0);
-            //sleep(1000);
+            //robot.drive.drive(0,0,0);
+           // sleep(1000);
 
-            // robot.drive.drive(-1,0,0);
-            // sleep(250);
+            robot.drive.drive(-1,0,0);
+            sleep(250);
 
-            //robot.drive.drive(0,-1,0);
-            //sleep(600);
 
-            //robot.drive.drive(-1,0,0);
-            //sleep(200);
+
+
+
 
             robot.drive.drive(0, -0.8, 0);
+            sleep(200);
+
+            robot.drive.drive(1,0,0);
+            sleep(200);
+
+            robot.drive.drive(0,-0.8,0);
             sleep(3500);
 
-            //robot.drive.drive(-1,0,0);
-            //sleep(200);
 
 
-            robot.arm.setMarkerDown(0.5);
-            sleep(100);
 
-            robot.drive.drive(0, 0, 1);
-            sleep(300);
+            //robot.arm.setMarkerDown(0.5);
+           // sleep(100);
 
-            robot.drive.drive(0, -0.8, 0);
-            sleep(300);
+           // robot.drive.drive(0, 0, 1);
+            //sleep(300);
 
-            robot.drive.drive(1, 0, 0);
-            sleep(2600);
+            //robot.drive.drive(0, -0.8, 0);
+            //sleep(300);
+
+            //robot.drive.drive(1, 0, 0);
+           // sleep(2600);
 
 
         }

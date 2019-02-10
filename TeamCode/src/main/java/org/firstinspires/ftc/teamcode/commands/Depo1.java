@@ -29,7 +29,7 @@ public class Depo1 extends AutoOpMode {
             robot.drive.drive(1,0 , 0);
             sleep(200);
 
-            robot.drive.drive(0,1,0);
+            robot.drive.drive(0,1 ,0);
             sleep(200);
 
             robot.vision.trackMineralPosition();
