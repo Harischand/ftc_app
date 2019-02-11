@@ -19,20 +19,20 @@ public class CreaterBackUp extends AutoOpMode {
         if (opModeIsActive()) {
 
 
-            robot.arm.setClimberUp();
-            sleep(5400);
+            //robot.arm.setClimberUp();
+            //sleep(5500);
 
-            robot.drive.drive(0,0,0);
-            sleep(1000);
+            //robot.drive.stop();
+            //sleep(3000);
 
-            robot.drive.drive(-1,0,0);
-            sleep(250);
+           // robot.drive.drive(-1,0,0);
+           // sleep(300);
 
 
            robot.drive.drive(0,-1,0);
             sleep(1300);
 
-            /*robot.drive.drive(1,0,0);
+            robot.drive.drive(1,0,0);
             sleep(700);
             
             robot.drive.drive(0,0,1);
@@ -57,7 +57,7 @@ public class CreaterBackUp extends AutoOpMode {
             sleep(1800);
             
             robot.arm.setCarriage(1);
-            sleep(100);*/
+            sleep(100);
         }
 
     }

@@ -19,27 +19,29 @@ public class DepoBack_Up extends AutoOpMode {
     void run() {
         if (opModeIsActive()) {
 
-            robot.arm.setClimberUp();
-            sleep(5400);
+            //robot.arm.setClimberUp();
+            //sleep(5600);
 
             //robot.drive.drive(0,0,0);
            // sleep(1000);
-            robot.drive.stop();
-            sleep(5000);
+           // robot.drive.stop();
+            sleep(3000);
 
-            robot.drive.drive(-1,0,0);
-            sleep(250);
-
-
+           // robot.drive.drive(-1,0,0);
+           // sleep(300);
 
 
 
 
-            robot.drive.drive(0, -0.8, 0);
-            sleep(200);
 
-            robot.drive.drive(1,0,0);
-            sleep(200);
+
+
+
+           // robot.drive.drive(0, -0.8, 0);
+           // sleep(200);
+
+            //robot.drive.drive(1,0,0);
+            //sleep(200);
 
             robot.drive.drive(0,-0.8,0);
             sleep(3500);
@@ -47,17 +49,17 @@ public class DepoBack_Up extends AutoOpMode {
 
 
 
-            //robot.arm.setMarkerDown(0.5);
-           // sleep(100);
+            robot.arm.setMarkerDown(0.5);
+            sleep(100);
 
-           // robot.drive.drive(0, 0, 1);
-            //sleep(300);
+           robot.drive.drive(0, 0, 1);
+            sleep(300);
 
-            //robot.drive.drive(0, -0.8, 0);
-            //sleep(300);
+            robot.drive.drive(0, -0.8, 0);
+            sleep(300);
 
-            //robot.drive.drive(1, 0, 0);
-           // sleep(2600);
+            robot.drive.drive(1, 0, 0);
+            sleep(2600);
 
 
         }
