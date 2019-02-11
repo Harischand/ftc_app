@@ -24,6 +24,8 @@ public class DepoBack_Up extends AutoOpMode {
 
             //robot.drive.drive(0,0,0);
            // sleep(1000);
+            robot.drive.stop();
+            sleep(5000);
 
             robot.drive.drive(-1,0,0);
             sleep(250);
