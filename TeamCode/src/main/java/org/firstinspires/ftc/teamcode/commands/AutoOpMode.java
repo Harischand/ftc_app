@@ -14,7 +14,9 @@ public abstract class AutoOpMode extends LinearOpMode {
         initialize();
         waitForStart();
         runtime.reset();
-        run();
+        if (opModeIsActive()) {
+            run();
+        }
     }
 
     protected void runForTime(double seconds, Runnable action) {
