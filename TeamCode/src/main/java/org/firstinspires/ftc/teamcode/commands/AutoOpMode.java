@@ -4,7 +4,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 public abstract class AutoOpMode extends LinearOpMode {
-    ElapsedTime runtime = new ElapsedTime();
+    protected ElapsedTime runtime = new ElapsedTime();
 
     abstract void initialize();
     abstract void run();
@@ -15,5 +15,13 @@ public abstract class AutoOpMode extends LinearOpMode {
         waitForStart();
         runtime.reset();
         run();
+    }
+
+    protected void runForTime(double seconds, Runnable action) {
+        double currentTime = runtime.seconds();
+        double end = currentTime + seconds;
+        while (runtime.seconds() < end) {
+            action.run();
+        }
     }
 }
