@@ -75,5 +75,11 @@ public class Arm extends Mechanism {
         climberMotor.setPower(0);
 
     }
+    public void setClimberUpWithEncoders(){
+        climberMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        climberMotor.setTargetPosition(9000);
+        climberMotor.setPower(speed);
+    }
+        
 
 }
