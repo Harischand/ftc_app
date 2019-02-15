@@ -71,7 +71,7 @@ public class Arm extends Mechanism {
         marker.setPosition(position);
 
     }
-    public void setStopClimber(){
+    public void stopClimber(){
         climberMotor.setPower(0);
 
     }
