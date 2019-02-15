@@ -1,7 +1,10 @@
 package org.firstinspires.ftc.teamcode.commands;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
+
 import org.firstinspires.ftc.teamcode.Robot;
+@Disabled
 
 @Autonomous(name = "DepoBackUp")
 

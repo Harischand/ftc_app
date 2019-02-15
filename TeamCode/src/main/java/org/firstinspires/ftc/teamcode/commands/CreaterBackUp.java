@@ -14,19 +14,33 @@ public class CreaterBackUp extends AutoOpMode {
 
     @Override
     void run() {
-        runForTime(5.5, robot.arm::setClimberUp);
+        //runForTime(5.5, robot.arm::setClimberUp);
+        runForTime(4.4, () -> robot.arm. setClimberUpWithEncoders());
         robot.arm.stopClimber();
         runForTime(3, robot.drive::stop);
-        runForTime(.3, () -> robot.drive.drive(-1, 0, 0));
-        runForTime(1.3, () -> robot.drive.drive(0, -1, 0));
-        runForTime(.7, () -> robot.drive.drive(1, 0, 0));
-        runForTime(1.2, () -> robot.drive.drive(0, 0, 1));
-        runForTime(.3, () -> robot.drive.drive(-1, 0, 0));
-        runForTime(2.8, () -> robot.drive.drive(0, -1, 0));
-        runForTime(.55, () -> robot.drive.drive(-1, 0, 0));
-        runForTime(0.1, () -> robot.arm.setMarkerDown(0.5));
-        runForTime(.6, () -> robot.drive.drive(0, 0, 1));
-        runForTime(1.8, () -> robot.drive.drive(1, 0, 0));
+
+        runForTime(.15, () -> robot.drive.drive(-1, 0, 0));
+
+        runForTime(.3, () -> robot.drive.drive(0, -1, 0));
+
+        runForTime(.2, () -> robot.drive.drive(1, 0, 0));
+
+        runForTime(0.4, () -> robot.drive.drive(0, -1, 0));
+
+        runForTime( 1.0, () -> robot.drive.drive(1, 0, 0));
+
+        runForTime(1.0, () -> robot.drive.drive(0, 0, 1));
+
+        runForTime(.4, () -> robot.drive.drive(-1, 0, 0));
+
+        runForTime(2.6, () -> robot.drive.drive(0, -1, 0));
+
+       //  runForTime(.55, () -> robot.drive.drive(-1, 0, 0));
+
+        runForTime(0.1, () -> robot.arm.setMarkerDown(-0.5));
+
+        runForTime(.8, () -> robot.drive.drive(0, 0, 1));
+        runForTime(2.6, () -> robot.drive.drive(1, 0, 0));
         runForTime(0.1, () -> robot.arm.setCarriage(1));
     }
 }
