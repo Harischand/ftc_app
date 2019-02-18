@@ -18,7 +18,6 @@ public class Vision extends Mechanism {
 
     private VuforiaLocalizer vuforia;
     private TFObjectDetector tfod;
-    private Position position;
 
     public enum Position {
         LEFT, CENTER, RIGHT
@@ -52,7 +51,7 @@ public class Vision extends Mechanism {
         }
     }
 
-    public void trackMineralPosition() {
+    public Position trackMineralPosition() {
         if (tfod != null) {
             tfod.activate();
         }
@@ -77,13 +76,13 @@ public class Vision extends Mechanism {
                         if (goldMineralX != -1 && silverMineral1X != -1 && silverMineral2X != -1) {
                             if (goldMineralX < silverMineral1X && goldMineralX < silverMineral2X) {
                                 opMode.telemetry.addData("Gold Mineral Position", "Left");
-                                position = Position.LEFT;
+                                return Position.LEFT;
                             } else if (goldMineralX > silverMineral1X && goldMineralX > silverMineral2X) {
                                 opMode.telemetry.addData("Gold Mineral Position", "Right");
-                                position = Position.RIGHT;
+                                return Position.RIGHT;
                             } else {
                                 opMode.telemetry.addData("Gold Mineral Position", "Center");
-                                position = Position.CENTER;
+                                return Position.CENTER;
                             }
                         }
                     }
@@ -91,15 +90,12 @@ public class Vision extends Mechanism {
                 }
             }
         }
+        return null;
     }
 
     public void shutdown() {
         if (tfod != null) {
             tfod.shutdown();
         }
-    }
-
-    public Position getPosition() {
-        return position;
     }
 }

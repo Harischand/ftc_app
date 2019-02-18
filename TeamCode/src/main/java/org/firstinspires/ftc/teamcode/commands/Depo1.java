@@ -28,8 +28,7 @@ public class Depo1 extends AutoOpMode {
         robot.drive.drive(0, 1, 0);
         sleep(200);*/
 
-        robot.vision.trackMineralPosition();
-        Vision.Position position = robot.vision.getPosition();
+        Vision.Position position = robot.vision.trackMineralPosition();;
 
         if (position == Vision.Position.LEFT) {
             runForTime(0.500, () -> robot.drive.drive(-1,0,0));
