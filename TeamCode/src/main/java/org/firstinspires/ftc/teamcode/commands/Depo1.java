@@ -28,22 +28,23 @@ public class Depo1 extends AutoOpMode {
         robot.drive.drive(0, 1, 0);
         sleep(200);*/
 
-        Vision.Position position = robot.vision.trackMineralPosition();;
-
-        if (position == Vision.Position.LEFT) {
-            runForTime(0.500, () -> robot.drive.drive(-1,0,0));
-
-        }
-        else if (position == Vision.Position.RIGHT) {
-
-            //
-        }
-        else {
-            robot.drive.drive(0, -1, 0);
-            sleep(1000);
-
-           // robot.arm.setMarkerDown(0.5);
-            //sleep(100);
-        }
+//            robot.vision.trackMineralPosition();
+//            Vision.Position position = robot.vision.getPosition();
+//
+//        if (position == Vision.Position.LEFT) {
+//            runForTime(0.500, () -> robot.drive.drive(-1,0,0));
+//
+//        }
+//        else if (position == Vision.Position.RIGHT) {
+//
+//            //
+//        }
+//        else {
+//            robot.drive.drive(0, -1, 0);
+//            sleep(1000);
+//
+//           // robot.arm.setMarkerDown(0.5);
+//            //sleep(100);
+//        }
     }
 }
