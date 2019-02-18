@@ -15,9 +15,9 @@ public class ClimberTest extends AutoOpMode {
 
     @Override
     void run() {
-       // robot.arm.setClimberUpWithEncoders();
+       //robot.arm.setClimberUpWithEncoders();
         //sleep(10);
-        runForTime(10, () -> robot.arm. setClimberUpWithEncoders());
+       runForTime(4.58, () -> robot.arm. setClimberUpWithEncoders());
 
     }
 }

@@ -16,7 +16,7 @@ public class Depo1 extends AutoOpMode {
     @Override
     void run() {
 
-        robot.arm.setClimberUp();
+        /*robot.arm.setClimberUp();
         sleep(6600);
 
         robot.drive.drive(0, 0, 0);
@@ -26,24 +26,25 @@ public class Depo1 extends AutoOpMode {
         sleep(200);
 
         robot.drive.drive(0, 1, 0);
-        sleep(200);
+        sleep(200);*/
 
         robot.vision.trackMineralPosition();
         Vision.Position position = robot.vision.getPosition();
 
         if (position == Vision.Position.LEFT) {
-            robot.drive.drive(-1, 0, 0);
-            sleep(1000);
+            runForTime(0.500, () -> robot.drive.drive(-1,0,0));
 
-        } else if (position == Vision.Position.RIGHT) {
+        }
+        else if (position == Vision.Position.RIGHT) {
 
             //
-        } else {
-            robot.drive.drive(0, 1, 0);
+        }
+        else {
+            robot.drive.drive(0, -1, 0);
             sleep(1000);
 
-            robot.arm.setMarkerDown(0.5);
-            sleep(100);
+           // robot.arm.setMarkerDown(0.5);
+            //sleep(100);
         }
     }
 }

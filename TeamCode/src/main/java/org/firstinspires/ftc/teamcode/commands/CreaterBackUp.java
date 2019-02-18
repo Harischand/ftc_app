@@ -15,9 +15,9 @@ public class CreaterBackUp extends AutoOpMode {
     @Override
     void run() {
         //runForTime(5.5, robot.arm::setClimberUp);
-        runForTime(4.4, () -> robot.arm. setClimberUpWithEncoders());
-        robot.arm.stopClimber();
-        runForTime(3, robot.drive::stop);
+        runForTime(10, () -> robot.arm. setClimberUpWithEncoders());
+        //robot.arm.stopClimber();
+        //runForTime(3, robot.drive::stop);
 
         runForTime(.15, () -> robot.drive.drive(-1, 0, 0));
 

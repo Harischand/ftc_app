@@ -18,45 +18,40 @@ public class DepoBack_Up extends AutoOpMode {
     @Override
     void run() {
 
-        //robot.arm.setClimberUp();
-        //sleep(5600);
 
 
-        //robot.drive.drive(0,0,0);
-        // sleep(1000);
-        // robot.drive.stop();
-        //sleep(3000);
+        runForTime(10, () -> robot.arm. setClimberUpWithEncoders());
 
-        // robot.drive.drive(-1,0,0);
-        // sleep(300);
+        runForTime(0.15, () -> robot.drive.drive(-1,0,0));
 
+        runForTime(1.8, () -> robot.drive.drive(0,-1,0));
 
-        // robot.drive.drive(0, -0.8, 0);
-        // sleep(200);
-
-        //robot.drive.drive(1,0,0);
-        //sleep(200);
-
-        runForTime(2.6, () -> robot.drive.drive(0, -1, 0));
-        //robot.drive.drive(0,-0.8,0);
-        //sleep(3500);
         runForTime(0.1, () -> robot.arm.setMarkerDown(-0.5));
 
+        runForTime(0.500, () -> robot.drive.drive(0,0,1));
 
-        //robot.arm.setMarkerDown(0.5);
-        //sleep(100);
-        runForTime(0.4, () -> robot.drive.drive(0,0,1));
+        runForTime(3.0, () -> robot.drive.drive(1,0,0));
 
-        //robot.drive.drive(0, 0, 1);
-        //sleep(300);
-        //runForTime(0.3, () -> robot.drive.drive(0,-0.8,0));
+        /*
+        First latch off by moving climber up for 10 seconds,
 
-        //robot.drive.drive(0, -0.8, 0);
-        //sleep(300);
-        runForTime(2.8, () -> robot.drive.drive(1,0,0));
+        next move 150 milliseconds backwards
 
-        //robot.drive.drive(1, 0, 0);
-        //sleep(2600);
+        next strafing right 1.8 seconds,
+
+        then drop marker into depot ,
+
+        then turn left for 0.5 seconds,
+
+        finally drive toward Crater for 3 seconds to partial park
+
+         */
+
+
+
+
+
+
     }
 }
 
