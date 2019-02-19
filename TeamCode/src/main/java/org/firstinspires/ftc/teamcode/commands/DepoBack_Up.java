@@ -17,10 +17,7 @@ public class DepoBack_Up extends AutoOpMode {
 
     @Override
     void run() {
-
-
-
-        robot.arm. setClimberUpWithEncoders();
+        robot.arm.setClimberUpWithEncoders();
 
         runForTime(0.15, () -> robot.drive.drive(-1,0,0));
 

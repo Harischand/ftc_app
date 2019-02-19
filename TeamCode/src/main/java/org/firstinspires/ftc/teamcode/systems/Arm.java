@@ -92,6 +92,7 @@ public class Arm extends Mechanism {
                 double kP_Output = kP * error;
                 double output = Range.clip(kP_Output, -1.0, 1.0);
                 climberMotor.setPower(output);
+                opMode.telemetry.addData("encoder", getClimberEncoderTicks());
             }
         } catch (NullPointerException e) {
             System.out.println("Tried to use method only meant for " +
