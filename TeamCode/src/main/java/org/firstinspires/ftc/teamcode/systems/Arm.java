@@ -5,18 +5,20 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
+import com.qualcomm.robotcore.util.Range;
 
 public class Arm extends Mechanism {
     private DcMotor armMotor, outTake, inTake, climberMotor;
-    private Servo carriage, carriage2, marker;//carriage is left and carriage2 right
+    // carriage is left and carriage2 right
+    private Servo carriage, carriage2, marker;
     private final double speed = 0.5;
+    private final double TICKS_PER_INCH = 0;
 
     public Arm(LinearOpMode opMode) {
         this.opMode = opMode;
     }
 
-    public Arm() {
-    }
+    public Arm() {}
 
     @Override
     public void init(HardwareMap hwMap) {
@@ -33,12 +35,13 @@ public class Arm extends Mechanism {
         outTake.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         inTake.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         climberMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        climberMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        climberMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
     }
 
     public void setArmMotor(double power) {
         armMotor.setPower(power);
     }
-
 
     public void setInTakeMotor(double power) {
         inTake.setPower(power);
@@ -71,15 +74,39 @@ public class Arm extends Mechanism {
         marker.setPosition(position);
 
     }
-    public void stopClimber(){
+
+    public void stopClimber() {
         climberMotor.setPower(0);
 
     }
-    public void setClimberUpWithEncoders(){
-        climberMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        climberMotor.setTargetPosition(9000);
-        climberMotor.setPower(speed);
-    }
-        
 
+    private int convert(double inches) {
+        return (int) (inches * TICKS_PER_INCH);
+    }
+
+    public void setClimberTarget(double targetInches) {
+        int ticks = convert(targetInches);
+        double kP = 1.0 / ticks;
+        try {
+            while (opMode.opModeIsActive() && Math.abs(ticks) > 200) {
+                double error = getError(ticks);
+                double kP_Output = kP * error;
+                double output = Range.clip(kP_Output, -1.0, 1.0);
+                climberMotor.setPower(output);
+            }
+        } catch (NullPointerException e) {
+            System.out.println("Tried to use method only meant for " +
+                               "autonomous!");
+            e.printStackTrace();
+        }
+        stopClimber();
+    }
+
+    private int getError(int setpointInTicks) {
+        return setpointInTicks - getClimberEncoderTicks();
+    }
+
+    public int getClimberEncoderTicks() {
+        return climberMotor.getCurrentPosition();
+    }
 }
