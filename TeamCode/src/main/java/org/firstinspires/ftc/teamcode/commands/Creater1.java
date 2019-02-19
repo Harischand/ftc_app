@@ -12,7 +12,6 @@ public class Creater1 extends AutoOpMode {
     @Override
     public void initialize() {
         robot.init(hardwareMap);
-
     }
 
     @Override
