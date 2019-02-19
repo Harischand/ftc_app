@@ -7,6 +7,8 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 
+import java.sql.Time;
+
 public class DriveSystem extends Mechanism {
     private DcMotor fLeft, bLeft, fRight, bRight;
 
@@ -55,10 +57,17 @@ public class DriveSystem extends Mechanism {
         bRight.setPower(0);
     }
 
+
     public void log(Telemetry telemetry) {
         telemetry.addData("back right", bRight.getPower());
         telemetry.addData("front right", fRight.getPower());
         telemetry.addData("back left", bRight.getPower());
         telemetry.addData("front left", fLeft.getPower());
+
     }
+
+
+
+
+
 }

@@ -27,7 +27,7 @@ public class TeleOpDrive extends OpMode {
             robot.arm.setClimberUp();
         } else if (gamepad2.dpad_down) {
             robot.arm.setClimberDown();
-        } else if (gamepad2.dpad_right) {
+        } else {
             robot.arm.stopClimber();
         }
 

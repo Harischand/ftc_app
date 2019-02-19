@@ -109,4 +109,9 @@ public class Arm extends Mechanism {
     public int getClimberEncoderTicks() {
         return climberMotor.getCurrentPosition();
     }
+
+    public void setClimberUpWithEncoders(){
+        setClimberTarget(8007);
+        setClimberUp();
+    }
 }
