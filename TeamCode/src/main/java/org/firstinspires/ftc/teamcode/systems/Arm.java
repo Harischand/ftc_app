@@ -84,12 +84,11 @@ public class Arm extends Mechanism {
         return (int) (inches * TICKS_PER_INCH);
     }
 
-    public void setClimberTarget(double targetInches) {
-        int ticks = convert(targetInches);
-        double kP = 1.0 / ticks;
+    public void setClimberTarget(int targetTicks) {
+        double kP = 1.0 / targetTicks;
         try {
-            while (opMode.opModeIsActive() && Math.abs(ticks) > 200) {
-                double error = getError(ticks);
+            while (opMode.opModeIsActive() && Math.abs(targetTicks) > 200) {
+                double error = getError(targetTicks);
                 double kP_Output = kP * error;
                 double output = Range.clip(kP_Output, -1.0, 1.0);
                 climberMotor.setPower(output);
@@ -112,6 +111,5 @@ public class Arm extends Mechanism {
 
     public void setClimberUpWithEncoders(){
         setClimberTarget(8007);
-        setClimberUp();
     }
 }
