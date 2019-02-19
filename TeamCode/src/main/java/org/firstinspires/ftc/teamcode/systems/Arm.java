@@ -87,7 +87,7 @@ public class Arm extends Mechanism {
     public void setClimberTarget(int targetTicks) {
         double kP = 2.0 / targetTicks;
         try {
-            while (opMode.opModeIsActive() && Math.abs(targetTicks) > 200) {
+            while (opMode.opModeIsActive() && Math.abs(getError(targetTicks)) > 200) {
                 double error = getError(targetTicks);
                 double kP_Output = kP * error;
                 double output = Range.clip(kP_Output, -1.0, 1.0);
