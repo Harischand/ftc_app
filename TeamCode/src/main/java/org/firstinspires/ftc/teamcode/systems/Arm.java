@@ -85,7 +85,7 @@ public class Arm extends Mechanism {
     }
 
     public void setClimberTarget(int targetTicks) {
-        double kP = 1.0 / targetTicks;
+        double kP = 2.0 / targetTicks;
         try {
             while (opMode.opModeIsActive() && Math.abs(targetTicks) > 200) {
                 double error = getError(targetTicks);
@@ -93,6 +93,7 @@ public class Arm extends Mechanism {
                 double output = Range.clip(kP_Output, -1.0, 1.0);
                 climberMotor.setPower(output);
                 opMode.telemetry.addData("encoder", getClimberEncoderTicks());
+                opMode.telemetry.update();
             }
         } catch (NullPointerException e) {
             System.out.println("Tried to use method only meant for " +
