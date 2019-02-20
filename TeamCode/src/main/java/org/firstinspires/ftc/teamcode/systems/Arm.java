@@ -85,12 +85,16 @@ public class Arm extends Mechanism {
     }
 
     public void setClimberTarget(int targetTicks) {
-        double kP = 2.0 / targetTicks;
+        double kP = 0.00025;
+        double kD = 0.0;
+        int prevError = 0;
         try {
             while (opMode.opModeIsActive() && Math.abs(getError(targetTicks)) > 200) {
                 double error = getError(targetTicks);
                 double kP_Output = kP * error;
-                double output = Range.clip(kP_Output, -1.0, 1.0);
+                double kD_Output = kD * (error - prevError);
+                double PD_Output = kP_Output + kD_Output;
+                double output = Range.clip(PD_Output, -1.0, 1.0);
                 climberMotor.setPower(output);
                 opMode.telemetry.addData("encoder", getClimberEncoderTicks());
                 opMode.telemetry.update();
