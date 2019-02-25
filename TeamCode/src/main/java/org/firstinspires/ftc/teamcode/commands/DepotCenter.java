@@ -3,9 +3,9 @@ package org.firstinspires.ftc.teamcode.commands;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import org.firstinspires.ftc.teamcode.Robot;
 
-@Autonomous(name = "DepoBack_Up")
+@Autonomous(name = "DepotCenter")
 
-public class DepoBack_Up extends AutoOpMode {
+public class DepotCenter extends AutoOpMode {
     private Robot robot = new Robot(this);
 
     @Override
@@ -25,12 +25,21 @@ public class DepoBack_Up extends AutoOpMode {
 
        runForTime(0.1, () -> robot.drive.drive(1,0,0));
 
-        runForTime(2.3, () -> robot.drive.drive(0,-1,0));
+        runForTime(2.60, () -> robot.drive.drive(0,-1,0));
 
 
         runForTime(0.1, () -> robot.arm.setMarkerDown(-0.5));
 
-       runForTime(0.1, () -> robot.drive.drive(0,0,0.5));
+       runForTime(2, () -> robot.drive.drive(0,1,0));
+
+        runForTime(1, () -> robot.drive.drive(1,0,0));
+
+        runForTime(0.1, () -> robot.drive.drive(0,0,1));
+
+        runForTime(.6, () -> robot.drive.drive(1,0,0));
+
+
+
 
         //runForTime(3.0, () -> robot.drive.drive(1,0,0));
 
