@@ -24,7 +24,7 @@ public class CraterLeft extends AutoOpMode {
 
         runForTime(0.1, () -> robot.drive.drive(1,0,0));
 
-        runForTime(0.2, () -> robot.drive.drive(0,-1,0));
+        runForTime(0.7, () -> robot.drive.drive(0,-1,0));
 
         runForTime(0.700, () -> robot.drive.drive(1,0,0));
 
