@@ -35,7 +35,40 @@ public class DepotRight extends AutoOpMode {
 
         runForTime(0.5, () -> robot.drive.drive(-1,0,0));
 
-        runForTime(0.6, () -> robot.drive.drive(0,-1,0));
+        runForTime(1.6, () -> robot.drive.drive(0,-1,0));
+
+        runForTime(0.3, () -> robot.drive.drive(0,0,1));
+
+        runForTime(1, () -> robot.drive.drive(0,-1,0));
+
+        runForTime(.2,() -> robot.arm.setMarkerDown(-0.5));
+
+        runForTime(0.7, () -> robot.drive.drive(0,-1,0));
+
+        runForTime(0.3, () -> robot.drive.drive(0,1,0));
+
+        runForTime(0.6, () -> robot.drive.drive(0.8,0,0));
+
+        runForTime(0.2, () -> robot.drive.drive(0,-1,0));
+
+        runForTime(0.8, () -> robot.drive.drive(1,0,0));
+
+        runForTime(0.2, () -> robot.drive.drive(0,0,1));
+
+        runForTime(1.4, () -> robot.drive.drive(1,0,0));
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

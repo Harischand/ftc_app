@@ -28,6 +28,8 @@ public class CraterCenter extends AutoOpMode {
 
         runForTime(1.2, () -> robot.drive.drive(0,-1,0));
 
+        runForTime(0.2, () -> robot.arm.setMarkerDown(-0.5));
+
 
     }
 }

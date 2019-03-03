@@ -31,6 +31,8 @@ public class CraterRight extends AutoOpMode {
 
         runForTime(1, () -> robot.drive.drive(0,-1,0));
 
+        runForTime(0.2, () -> robot.arm.setMarkerDown(-0.5));
+
 
     }
 }
