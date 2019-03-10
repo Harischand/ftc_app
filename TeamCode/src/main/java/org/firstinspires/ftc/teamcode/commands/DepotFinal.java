@@ -7,6 +7,14 @@ import org.firstinspires.ftc.teamcode.systems.Vision;
 @Autonomous(name = "DepotFinal")
 public class DepotFinal extends AutoOpMode {
     private Robot robot = new Robot(this);
+    
+    /* This is the code for the Depot section:
+    First we latch off, 
+    next we sample using Vuforia and Tensor Flow Object detection,
+    then we drop our marker in the Depot 
+    Finally we park in the Crater
+    This give us a total of 80 points.
+    */
 
     @Override
     public void initialize() {
