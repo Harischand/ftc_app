@@ -8,6 +8,12 @@ import org.firstinspires.ftc.teamcode.systems.Vision;
 public class CraterFinal extends AutoOpMode {
 
     private Robot robot = new Robot(this);
+    /* This code is for the Crater section:
+    First we latch off the lander,
+    next we sample by using vuforia and tensor flow object detection,
+    then we partial park in the crater
+    we earn a total of 65 points.
+    */
 
     @Override
     public void initialize() {
